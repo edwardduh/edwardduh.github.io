@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wei-Jou (Edward) Duh — AI Researcher & Technology Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1a2e4a;
+      --blue:   #2563eb;
+      --sky:    #e8f1fd;
+      --accent: #0ea5e9;
+      --gold:   #d97706;
+      --text:   #1e293b;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+      --white:  #ffffff;
+      --bg:     #f8fafc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 60%, #163354 100%);
+      color: white;
+      padding: 5rem 2rem 4rem;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 12px;
+      border: 4px solid rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 0.25rem;
+    }
+    .hero-name-zh {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.65;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 0.4rem;
+    }
+    .hero-org {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.75rem;
+    }
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .hero-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .hero-contact-item svg { flex-shrink: 0; opacity: 0.7; }
+    .hero-contact-item a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .hero-contact-item a:hover { color: var(--accent); }
+
+    /* ── SECTIONS ── */
+    section { padding: 4.5rem 2rem; }
+    section:nth-child(even) { background: var(--bg); }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--sky);
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+      line-height: 1.25;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .stats-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .stat-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item:first-child { padding-top: 0; }
+    .stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .stat-number {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.55rem;
+      top: 0.4rem;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), var(--border));
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 2.25rem;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -1.7rem;
+      top: 0.35rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2.5px solid var(--blue);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    }
+    .tl-item.current .tl-dot {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .tl-period {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+      text-transform: uppercase;
+    }
+    .tl-role {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.15rem;
+    }
+    .tl-org {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .edu-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--blue);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .edu-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .edu-degree {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+    .edu-field {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+    .edu-school {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    .edu-year {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .achieve-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .achieve-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+    .achieve-card-icon.research { background: #eff6ff; }
+    .achieve-card-icon.events   { background: #f0fdf4; }
+    .achieve-card-icon.talks    { background: #fefce8; }
+    .achieve-card-icon.awards   { background: #fff7ed; }
+    .achieve-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .achieve-list {
+      list-style: none;
+    }
+    .achieve-list li {
+      font-size: 0.83rem;
+      color: var(--muted);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .achieve-list li:last-child { border-bottom: none; }
+    .achieve-list .year {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+    .achieve-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: baseline;
+    }
+
+    /* ── HIGHLIGHT AWARD ── */
+    .award-highlight {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 1px solid #fde68a;
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .award-highlight-icon { font-size: 2rem; }
+    .award-highlight-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #92400e;
+    }
+    .award-highlight-text span {
+      font-size: 0.82rem;
+      color: #b45309;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+    .contact-item-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--sky);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item-text {
+      font-size: 0.875rem;
+    }
+    .contact-item-text strong { display: block; color: var(--navy); font-weight: 600; margin-bottom: 0.1rem; }
+    .contact-item-text span, .contact-item-text a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .contact-item-text a:hover { color: var(--blue); }
+    .contact-map {
+      background: var(--sky);
+      border-radius: 12px;
+      overflow: hidden;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+    }
+    .contact-map-placeholder {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    .contact-map-placeholder strong { display: block; color: var(--navy); margin-bottom: 0.5rem; font-size: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    footer a:hover { color: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+      .hero-photo { width: 140px; height: 170px; margin: 0 auto; }
+      .hero-contacts { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Edward Duh</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <img
+      src="Edward Duh web 202606_full.files/image001.png"
+      alt="Wei-Jou (Edward) Duh"
+      class="hero-photo"
+    >
+    <div class="hero-content">
+      <div class="hero-eyebrow">AI Researcher &amp; Technology Leader</div>
+      <h1 class="hero-name">Wei-Jou (Edward) Duh</h1>
+      <div class="hero-name-zh">杜維洲</div>
+      <div class="hero-title">Chief Executive Officer, AI Research Center</div>
+      <div class="hero-org">National Taiwan University (AINTU) &nbsp;·&nbsp; 臺大人工智慧研究中心 執行長</div>
+      <div class="hero-contacts">
+        <div class="hero-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          <span>+886-2-33669559</span>
+        </div>
+        <div class="hero-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:edwardduh@ntu.edu.tw">edwardduh@ntu.edu.tw</a>
+        </div>
+        <div class="hero-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://ai.ntu.edu.tw" target="_blank" rel="noopener">ai.ntu.edu.tw</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <span class="section-tag">About</span>
+    <h2 class="section-title">Bridging AI Research &amp; Industry</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Wei-Jou (Edward) Duh is the Chief Executive Officer of the Artificial Intelligence Research Center (AINTU) at National Taiwan University. He holds a Ph.D. in Computer Science and Information Engineering from NTU, with a specialization in digital signal processing and multimedia systems.</p>
+        <p>Prior to his current role, Edward accumulated more than 20 years of experience in the fabless IC design industry, leading engineering teams through multimedia chip planning, design, validation, and turnkey solution development — with full P&amp;L responsibility for product lines. His career spanned several successful startup cycles, including Oak Technology Inc. (NASDAQ: OAKT), Cheertek Inc. (TW: 3271), Qpixel Technology, Quanta Computer (TW: 2382), and Sigma Designs Inc. (NASDAQ: SIGM).</p>
+        <p>Since 2019, he has directed AINTU, coordinating over 30 AI research projects across multiple Taiwanese universities, managing large-scale NSTC programs covering core AI technology development and applications in healthcare and other sectors. His landmark <em>Smart Emergency Capstone</em> project demonstrated how AI can be defined, developed, and deployed in real hospital settings.</p>
+        <p>Edward has co-organized the annual AI Forum with Google for nine consecutive years, accumulating more than 90 Google speakers and 3,500 participants. He is deeply committed to closing the gap between academic research and industry needs.</p>
+      </div>
+      <div class="stats-card">
+        <div class="stat-item">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Years in IC design industry</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">AI research projects coordinated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">9</div>
+          <div class="stat-label">Consecutive Google AI Forums organized</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3,500+</div>
+          <div class="stat-label">Forum participants accumulated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Startup companies (including 2 NASDAQ-listed)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="section-inner">
+    <span class="section-tag">Career</span>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="timeline">
+
+      <div class="tl-item current">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2019 – Present</div>
+        <div class="tl-role">Chief Executive Officer (CEO)</div>
+        <div class="tl-org">AI Research Center, National Taiwan University (AINTU) · 臺大人工智慧研究中心 執行長</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2016 – 2019</div>
+        <div class="tl-role">General Manager &amp; Co-founder</div>
+        <div class="tl-org">Orzdar Technology (AIoT Startup) · 歐神科技 總經理</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2013 – 2014</div>
+        <div class="tl-role">VP, Application Engineering</div>
+        <div class="tl-org">Immedia Semiconductor Inc. (US-based Startup)</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2011 – 2013</div>
+        <div class="tl-role">Managing Senior Director — Head of Taiwan Branch</div>
+        <div class="tl-org">Sigma Designs Inc. (NASDAQ: SIGM) · 美商芯盟科技 台灣區總經理</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2009 – 2011</div>
+        <div class="tl-role">Senior Director / VP R&amp;D</div>
+        <div class="tl-org">Quanta Computer Inc. &amp; Puzzle Logic Inc. (TW: 2382) · 廣達電腦 資深處長 / 達積電子 研發副總</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2005 – 2008</div>
+        <div class="tl-role">VP, System Engineering</div>
+        <div class="tl-org">Qpixel Technology Inc. (US-based Startup) · 美商微點科技 副總經理</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">2002 – 2005</div>
+        <div class="tl-role">Senior Director</div>
+        <div class="tl-org">Cheertek Inc. (TW: 3271) · 其樂達科技 資深處長</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-period">1994 – 2002</div>
+        <div class="tl-role">Director, R&amp;D</div>
+        <div class="tl-org">Oak Technology Inc. (NASDAQ: OAKT) · 美商橡華電腦 研發部協理</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <span class="section-tag">Education</span>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Ph.D.</div>
+        <div class="edu-field">Computer Science &amp; Information Engineering</div>
+        <div class="edu-school">National Taiwan University</div>
+        <div class="edu-year">1992</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Master of Science</div>
+        <div class="edu-field">Computer Science &amp; Information Engineering</div>
+        <div class="edu-school">National Taiwan University</div>
+        <div class="edu-year">1989</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Science</div>
+        <div class="edu-field">Computer Engineering</div>
+        <div class="edu-school">National Chiao Tung University, Hsinchu</div>
+        <div class="edu-year">1987</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-inner">
+    <span class="section-tag">Achievements</span>
+    <h2 class="section-title">Highlights Since 2019</h2>
+
+    <div class="award-highlight">
+      <div class="award-highlight-icon">🏆</div>
+      <div class="award-highlight-text">
+        <strong>AI Award — Academic Industrialization Prize</strong>
+        <span>Taiwan Artificial Intelligence Association · May 2025</span>
+      </div>
+    </div>
+
+    <div class="achieve-grid">
+
+      <div class="achieve-card">
+        <div class="achieve-card-icon research">🔬</div>
+        <h3>Major Research Projects</h3>
+        <ul class="achieve-list">
+          <li>
+            <div class="achieve-row">
+              <span class="year">2026</span>
+              <span>NSTC Next-Generation Frontier AI — Human-centric multimodal AI agent research</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2023–25</span>
+              <span>NSTC National Challenge AI — Advanced trustworthy AI (Phase II)</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2021–23</span>
+              <span>NSTC National Challenge AI — Advanced trustworthy AI (Phase I)</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2019–23</span>
+              <span>NSTC AI Center Capstone — Smart Emergency Project (NTU Hospital)</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2018–22</span>
+              <span>Ministry of Science &amp; Technology — AI Innovation Research Center</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="achieve-card">
+        <div class="achieve-card-icon events">🎓</div>
+        <h3>Academic Events Organized</h3>
+        <ul class="achieve-list">
+          <li>
+            <div class="achieve-row">
+              <span class="year">2023</span>
+              <span>General Chair, ACM SIGIR Conference 2023</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2021</span>
+              <span>MLSS 2021 — Machine Learning Summer School</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2019–25</span>
+              <span>Annual Google AI BootCamp / AI Forum (9 consecutive years)</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2023</span>
+              <span>Trustworthy AI Summit International Forum</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2025</span>
+              <span>Taiwan AI Academic Forum 2025</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="achieve-card">
+        <div class="achieve-card-icon talks">🎤</div>
+        <h3>Invited Talks</h3>
+        <ul class="achieve-list">
+          <li>
+            <div class="achieve-row">
+              <span class="year">2026</span>
+              <span>Panelist, Advantech Edge AI Global Summit</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2025</span>
+              <span>"AI Rise — The Revolution Disrupting the Workplace"</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2024</span>
+              <span>"AI Era Trends and Observations", Human Development Training Alliance</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2022</span>
+              <span>"AI and Smart Healthcare in an Aging Society", Chang Gung University</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2021</span>
+              <span>"AI and Smart Healthcare", Scientific American Taiwan Youth Forum</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="achieve-card">
+        <div class="achieve-card-icon awards">🌟</div>
+        <h3>Roles &amp; Recognitions</h3>
+        <ul class="achieve-list">
+          <li>
+            <div class="achieve-row">
+              <span class="year">2026</span>
+              <span>Judge, Storm.mg AI Medical Pioneer Award</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2022–24</span>
+              <span>President (3rd term), NTU CSIE Alumni Association</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2023</span>
+              <span>NTU Hospital: AI press conference on emergency dept. congestion</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2020</span>
+              <span>Judge, 17th National Innovation Award</span>
+            </div>
+          </li>
+          <li>
+            <div class="achieve-row">
+              <span class="year">2020</span>
+              <span>Panelist, KPMG Taiwan Digital Health Development Forum</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <span class="section-tag">Contact</span>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Interested in AI research collaboration, academic partnerships, or invited speaking engagements? Feel free to reach out via any of the channels below.</p>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Email</strong>
+            <a href="mailto:edwardduh@ntu.edu.tw">edwardduh@ntu.edu.tw</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Phone</strong>
+            <span>+886-2-33669559 (Office)</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Website</strong>
+            <a href="https://ai.ntu.edu.tw" target="_blank" rel="noopener">ai.ntu.edu.tw</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Office</strong>
+            <span>鄭江樓南棟 R602, No. 1, Sec. 4, Roosevelt Rd., Da'an District, Taipei</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-map">
+        <div class="contact-map-placeholder">
+          <strong>National Taiwan University</strong>
+          AI Research Center (AINTU)<br>
+          鄭江樓南棟 R602<br>
+          台北市大安區羅斯福路四段一號<br><br>
+          <a href="https://ai.ntu.edu.tw" target="_blank" rel="noopener" style="color:#2563eb; font-weight:600;">→ Visit ai.ntu.edu.tw</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Wei-Jou (Edward) Duh · <a href="https://ai.ntu.edu.tw" target="_blank" rel="noopener">AI Research Center, National Taiwan University</a></p>
+</footer>
+
+</body>
+</html>
